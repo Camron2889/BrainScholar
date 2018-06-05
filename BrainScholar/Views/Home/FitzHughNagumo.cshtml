@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "FitzHughNagumo";
+
+}
+
+
+
+<div class="container">
+    <svg id="lineChart">
+        <g class="labels">
+            <text id="maxLabel"></text>
+            <text id="midLabel">0</text>
+            <text id="minLabel"></text>
+        </g>
+        <g class="lines">
+            <line id="maxLine" />
+            <line id="midLine" />
+            <line id="minLine" />
+            <line id="beginLine" />
+            <line id="endLine" />
+        </g>
+        <polyline id="chartLine" />
+    </svg>
+</div>
+<input type="button" id="startButton" value="Start">
+<input type="button" id="resetButton" value="Reset">
+<br />
+<script>
+    var onChange = function () { };
+</script>
+<div class="sliderContainer">
+    <label for="gnaSlider">GNA:</label>
+    <input type="range" min="0" max="3" step="0.1" class="slider" id="gnaSlider" oninput="onChange('gna', this.value)">
+</div>
+<div class="sliderContainer">
+    <label for="gkSlider">GK:</label>
+    <input type="range" min="0" max="10" step="0.1" class="slider" id="gkSlider" oninput="onChange('gk', this.value)">
+</div>
+<div class="sliderContainer">
+    <label for="betaSlider">Beta:</label>
+    <input type="range" min="0" max="1" step="0.01" class="slider" id="betaSlider" oninput="onChange('beta', this.value)">
+</div>
+<div class="sliderContainer">
+    <label for="gammaSlider">Gamma:</label>
+    <input type="range" min="0" max="2" step="0.05" class="slider" id="gammaSlider" oninput="onChange('gamma', this.value)">
+</div>
+<div class="sliderContainer">
+    <label for="stimulusIntervalSlider">Time between stimuli:</label>
+    <input type="range" min="0.02" max="4" step="0.02" class="slider" id="stimulusIntervalSlider" oninput="onChange('stimulusTimeInterval', this.value)">
+</div>
+<div class="sliderContainer">
+    <label for="stimulusMagnitudeSlider">Size of stimulus:</label>
+    <input type="range" min="0.1" max="1" step="0.01" class="slider" id="stimulusMagnitudeSlider" oninput="onChange('stimulusMagnitude', this.value)">
+</div>
+<div class="sliderContainer">
+    <label for="cSlider">C:</label>
+    <input type="range" min="0.005" max="0.5" step="0.01" class="slider" id="cSlider" oninput="onChange('c', this.value)">
+</div>
+
+@Styles.Render("~/Content/FitzHughNagumo/fhn.css");
+@Scripts.Render("~/Scripts/FitzHughNagumo/fhn.js");
